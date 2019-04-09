@@ -1,0 +1,42 @@
+<div class="container">
+    <form [formGroup]="attributeForm">
+        <div class="panel panel-primary">
+            <div class="panel-header">
+                <h3 class="panel-title"> Attribute Form</h3>
+            </div>
+        </div>
+        <div class="Form-group">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>Attribute Name</label>
+                    <input type="text" formControlName="attributeName" class="form-control">
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>Position</label>
+                    <input type="text" formControlName="position" class="form-control">
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>Regular Exp</label>
+                    <input type="text" formControlName="regEx" class="form-control">
+                </div>
+            </div>
+            <div class="row" formArrayName="inputFormat">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label>Field Type</label>
+                    <select class="form-control" #t (change)="getFieldType(t.value)" formControlName="0">
+                        <option value="">Select</option>
+                        <option value="text">text</option>
+                        <option value="radiobutton">radiobutton</option>
+                        <option value="dropdown">dropdown</option>
+                    </select>
+                </div>
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
