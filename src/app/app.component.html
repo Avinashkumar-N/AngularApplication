@@ -30,7 +30,14 @@
                         <option value="dropdown">dropdown</option>
                     </select>
                 </div>
-                <div>
+                <div *ngIf="typeDiv">
+                    {{inputFormat.controls}}
+                    <div class="col-lg-4 col-md-4 col-sm-4"
+                        *ngFor="let row of attributeForm.controls.inputFormat.controls;let i=index">
+                        {{i+1}}
+                        <input type="text" [formControlName]="i+1">
+                    </div>
+                    <input type="button" value="add">
 
                 </div>
                 <div>

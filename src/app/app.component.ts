@@ -7,8 +7,8 @@ import { FormBuilder, Validators, FormArray } from '@angular/forms';
 })
 export class AppComponent {
   title = 'angularForm';
-
-
+  typeDiv = false;
+  inputFormat = [];
   attributeForm = this.attrForm.group({
     attributeName: ['', Validators.required],
     position: [''],
@@ -17,16 +17,20 @@ export class AppComponent {
       this.attrForm.control('')
     ])
   });
+
   constructor(private attrForm: FormBuilder) {
 
   }
 
   getFieldType(val) {
+    this.inputFormat.push(this.attrForm.control(''));
     console.log(val);
     var arry = this.attributeForm.get('inputFormat') as FormArray;
     console.log(arry.controls[0].value);
-    console.log(arry.controls.length);
     if (val == "radiobutton") {
+      this.typeDiv = true;
+      this.inputFormat.push(this.attrForm.control(''));
+      console.log(arry.controls.length);
 
     }
     // console.log(this.attributeForm.get('inputFormat') as FormArray);
